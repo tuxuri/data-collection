@@ -10,9 +10,9 @@ import requests
 from bs4 import BeautifulSoup
 
 ENDPOINT = "https://www.99speedmart.com.my/Store"
-DOWNLOAD_DIR = "downloads"
-STORES = "stores.csv"
-HISTORY_CONFIG = "history.json"
+DOWNLOAD_DIR = r"99Speedmart\downloads"
+STORES = r"99Speedmart\stores.csv"
+HISTORY_CONFIG = r"99Speedmart\history.json"
 
 extract_page = re.compile(r"\d+")
 extract_coordinates = re.compile(r"\d+.\d+,\d+.\d+")
@@ -40,7 +40,7 @@ def main():
         print("Failed to get last page")
         return
 
-    with open("stores.csv", "w") as csvfile:
+    with open(STORES, mode='w', newline='',encoding="utf-8") as csvfile:
         writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
         writer.writeheader()
 
@@ -66,7 +66,7 @@ def fetch(history, url):
     history[url] = uuid.uuid4().hex
 
     data = resp.text
-    with open(os.path.join(DOWNLOAD_DIR, history[url]), "w") as f:
+    with open(os.path.join(DOWNLOAD_DIR, history[url]), mode='w', newline='',encoding="utf-8") as f:
         f.write(data)
 
     return data
