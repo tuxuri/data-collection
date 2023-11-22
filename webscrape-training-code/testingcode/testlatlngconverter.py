@@ -21,7 +21,6 @@ def get_latlng_from_google_maps_url(google_maps_url):
 
     return latitude, longitude
 
-# Example usage with the provided Google Maps link
 google_maps_url = "https://goo.gl/maps/BwjmmM9N8FqHLGn28"
 lat,lng = get_latlng_from_google_maps_url(google_maps_url)
 
