@@ -85,7 +85,7 @@ def extract_data(data):
 
         if name_element and address_element:
             name = name_element.text.strip()
-            address = address_element.text.strip()
+            address = name + ", "+address_element.text.strip()
 
             yield {
                 "feature_name": "giant",
