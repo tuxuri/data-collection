@@ -24,7 +24,7 @@ def get_nearest_facilities(latitude, longitude, access_token, types, limit=1):
             
             # if '99' not in place_name.lower():
             malaysian_states = ["Johor", "Kedah", "Kelantan", "Melaka", "Negeri Sembilan",
-                    "Pahang", "Perak", "Perlis", "Pulau Pinang", "Sabah", "Sarawak", "Selangor", "Terengganu","Labuan","Putrajaya","Kuala Lumpur"]
+                    "Pahang", "Perak", "Perlis", "Pulau Pinang", "Sabah", "Sarawak", "Selangor", "Terengganu","Labuan","Putrajaya","Kuala Lumpur", "Pen"]
 
             for state in malaysian_states:
                 if state.lower() in place_name.lower():

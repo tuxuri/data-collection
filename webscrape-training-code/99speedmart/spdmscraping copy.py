@@ -121,7 +121,7 @@ with open(csv_file_path, mode='w', newline='', encoding='utf-8') as csv_file:
     current_page = 1
     x=0
     while True:
-        url = f"{base_url}?page={current_page}"
+        url = f"{base_url}?page={current_page}&Statename=1"
         response = requests.get(url)
 
         if response.status_code == 200:
@@ -152,29 +152,23 @@ with open(csv_file_path, mode='w', newline='', encoding='utf-8') as csv_file:
                         if "03." in latitude or "02." in latitude:
                             latitude = latitude.replace('03.', '3.').replace('02.','2.')
 
-                        # if "selangor" in full_address.lower() and "E" not in latitude and "N" not in latitude:
+                        if "selangor" in full_address.lower() and "E" not in latitude and "N" not in latitude:
                             # print("Store Name: 99SpeedMart@", store_name)
                             # print("Full Address:", full_address)
                             # print("Latitude:", latitude)
                             # print("Longitude:", longitude)
                             # print("-----")
-                        location = store_name
-                        x+=1
+                            location = store_name
+                            x+=1
 
-                        mapbox_access_token = "pk.eyJ1IjoicnllaSIsImEiOiJjbG52aHo5aWgwcGs3MnBucDBwd2Jud2VkIn0.yFjj-Nk5rVdbkGtIaBF84Q"
-                        facility_types = "poi,poi.landmark"  
+                            mapbox_access_token = "pk.eyJ1IjoicnllaSIsImEiOiJjbG52aHo5aWgwcGs3MnBucDBwd2Jud2VkIn0.yFjj-Nk5rVdbkGtIaBF84Q"
+                            facility_types = "poi,poi.landmark"  
 
-                        nearestPoi = get_nearest_facilities(latitude, longitude, mapbox_access_token, facility_types)
+                            nearestPoi = get_nearest_facilities(latitude, longitude, mapbox_access_token, facility_types)
 
 
-                        csv_writer.writerow(["99speedmart","convenience_store","99SpeedMart @"+store_name, full_address, latitude, longitude, location,nearestPoi]) 
-                        print("Total Data : ",x)
-                    else :
-                        x+=1
-
-                        csv_writer.writerow(["99speedmart","convenience_store","99SpeedMart @"+store_name, full_address, "", "", store_name,""]) 
-                        print("Total Data : ",x)
-
+                            csv_writer.writerow(["99speedmart","convenience_store","99SpeedMart @"+store_name, full_address, latitude, longitude, location,nearestPoi]) 
+                            print("Total Data : ",x)
             # Find the next page link
             next_page_link = soup.find('li', class_='PagedList-skipToNext')
             if next_page_link:

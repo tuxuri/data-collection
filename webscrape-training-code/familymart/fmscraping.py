@@ -58,7 +58,8 @@ with open('data_familymart.csv', 'w', newline='', encoding='utf-8') as csvfile:
 
 
         # Check if the address contains "Selangor"
-        if 'Selangor' in full_address:
+        if full_address:
+        # if 'Selangor' in full_address:
             pattern = r'(?:.*?,){3}\s*([^,]+)$'
             match = re.search(pattern, full_address)
 
