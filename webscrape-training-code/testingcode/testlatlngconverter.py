@@ -21,7 +21,7 @@ def get_latlng_from_google_maps_url(google_maps_url):
 
     return latitude, longitude
 
-google_maps_url = "https://www.google.com/maps/place/5%C2%B036'37.4%22N+100%C2%B030'52.4%22E/@5.6103953,100.5119797,17z/data=!3m1!4b1!4m4!3m3!8m2!3d5.61039!4d100.51456?entry=ttu"
+google_maps_url = "https://goo.gl/maps/N9XGCgcpTRiG6o6r9"   
 lat,lng = get_latlng_from_google_maps_url(google_maps_url)
 
 print("Latitude and Longitude:", lat,",",lng)
