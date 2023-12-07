@@ -33,9 +33,9 @@ if response.status_code == 200:
             title=title.replace('CU ','CU@')
 
             full_address = f"{street}, {postal_code} {city}, {state}"
-            if state.lower() == "selangor":
-                writer.writerow({'feature_name': "CU",'Name': title,'Address': full_address, 'Latitude': lat, 'Longitude': lng})
-                x += 1
+            # if state.lower() == "selangor":
+            writer.writerow({'feature_name': "CU",'Name': title,'Address': full_address, 'Latitude': lat, 'Longitude': lng})
+            x += 1
 
         print("Total: ", x)
         print("Data has been written to data_cu.csv")

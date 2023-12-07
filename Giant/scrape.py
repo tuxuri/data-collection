@@ -9,7 +9,7 @@ import uuid
 import requests
 from bs4 import BeautifulSoup
 
-ENDPOINT = "https://www.giant.com.my/store_location/"
+ENDPOINT = "https://www.giant.com.my/store_location"
 DOWNLOAD_DIR = "downloads"
 STORES = "stores.csv"
 HISTORY_CONFIG = "history.json"
